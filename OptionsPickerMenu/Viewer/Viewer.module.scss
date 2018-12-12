@@ -1,0 +1,27 @@
+.optionItem {
+  // display: inline-block;
+  height: 30px;
+  margin: 2px;
+  width: 140px;
+  border: 0; // color: #ccc;
+  padding: 0 8px;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.optionContainer {
+  padding: 5px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  box-sizing: content-box;
+}
+
+.toggleEditBtn {
+  display: block;
+  width: 100%;
+  height: 40px;
+}

@@ -1,0 +1,53 @@
+@import "~@microsoft/sp-office-ui-fabric-core/dist/sass/ThemeOverrides.scss";
+
+.optionsPicker {
+  position: relative;
+  display: inline-block !important;
+}
+
+.optionsPicker>button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.optionsPicker .activeOption {
+  background-color: #ccc;
+  height: 32px;
+  line-height: 31px;
+  border: none;
+  width: 140px;
+  padding: 0 8px;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 auto;
+}
+
+.optionsPicker .optionsSelector {
+  position: absolute;
+  background-color: $ms-color-white;
+  z-index: 9;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.35);
+}
+
+.optionsPicker .optionsContainer {
+  display: block;
+  height: 160px;
+  padding: 10px;
+}
+
+.optionsPicker .optionsItem {
+  height: 30px;
+  width: 140px;
+  padding-bottom: 10px;
+  border-width: 0px !important;
+}
+
+.optionsPicker .addEditButton {
+  display: block;
+  width: 100%;
+}
