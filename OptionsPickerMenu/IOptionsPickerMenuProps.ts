@@ -1,3 +1,4 @@
+import { IColors } from "../IOptionsPickerProps";
 
 export interface IOptionsPickerOption {
   id?: number;
@@ -14,4 +15,5 @@ export interface IOptionsPickerMenuProps {
   editable?: boolean;
   onSelect?: (option: IOptionsPickerOption) => void;
   onSaveChange?: (options: IOptionsPickerOption[], deletedIds: number[]) => void;
+  colors: IColors;
 }

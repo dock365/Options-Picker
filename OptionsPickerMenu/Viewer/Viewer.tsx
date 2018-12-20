@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from './Viewer.module.scss';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { IStatusViewerProps } from './IViewerProps';
-import colors from '../../colors';
 
 export default class StatusViewer extends React.Component<IStatusViewerProps, {}> {
   public render() {
@@ -21,7 +20,7 @@ export default class StatusViewer extends React.Component<IStatusViewerProps, {}
               className={styles.optionItem}
               onClick={this.props.onSelect}
               value={option.id}
-              style={{ backgroundColor: option.color && colors[option.color] || option.color }}
+              style={{ backgroundColor: option.color && this.props.colors[option.color] || option.color }}
               title={option.title}
             >{option.title}</button>,
           )}

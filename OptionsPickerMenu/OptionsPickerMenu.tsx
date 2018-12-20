@@ -42,12 +42,14 @@ export default class OptionsPickerMenu extends React.Component<
                 options={this.props.options}
                 onSaveChanges={this.props.onSaveChange}
                 toggleEdit={this._toggleEdit}
+                colors={this.props.colors}
               /> :
               <StatusViewer
                 onSelect={this._onStatusSelect}
                 toggleEdit={this._toggleEdit}
                 options={this.props.options}
                 editable={this.props.editable}
+                colors={this.props.colors}
               />
           }
         </div>

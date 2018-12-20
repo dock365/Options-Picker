@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styles from './Editor.module.scss';
-import colors, { statusColors } from '../../colors';
 import { IEditorProps } from './IEditorProps';
 import { IEditorState } from './IEditorState';
 import { DefaultButton, ActionButton } from 'office-ui-fabric-react/lib/Button';
@@ -14,7 +13,7 @@ export default class Editor extends React.Component<
     this.state = {
       options: props.options,
       deletedOptions: [],
-      availableColors: Object.keys(statusColors),
+      availableColors: Object.keys(this.props.colors),
     };
 
     this._onColorSelect = this._onColorSelect.bind(this);
@@ -58,7 +57,7 @@ export default class Editor extends React.Component<
             <div className={styles.optionItem} key={status.color}>
               <div
                 className={styles.colorIndicator}
-                style={{ backgroundColor: status.color && colors[status.color] || status.color }} />
+                style={{ backgroundColor: status.color && this.props.colors[status.color] || status.color }} />
               <input
                 onChange={(e) => this._onStatusValueChange(e.target.value, status.color || "")}
                 value={status.title}
@@ -82,11 +81,11 @@ export default class Editor extends React.Component<
             null}
         </div>
         <div className={styles.colorPicker}>
-          {this.state.availableColors.map(key =>
+          {this.state.availableColors.map(color =>
             <button
-              key={key}
-              value={statusColors[key]}
-              style={{ backgroundColor: colors[statusColors[key]] }}
+              key={color}
+              value={color}
+              style={{ backgroundColor: this.props.colors[color] }}
               onClick={this._onColorSelect}
               className={styles.colorBtn}
             />,
@@ -161,7 +160,7 @@ export default class Editor extends React.Component<
       } else {
         prevState.options.forEach(({ color }) => {
           const indexOfColor = color && availableColors.indexOf(color);
-          if (indexOfColor !== undefined && indexOfColor !== "" && indexOfColor >= 0)
+          if (indexOfColor !== undefined && indexOfColor >= 0)
             availableColors.splice(indexOfColor, 1);
         });
       }

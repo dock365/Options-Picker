@@ -1,14 +1,13 @@
 import * as React from 'react';
 import styles from './OptionsPicker.module.scss';
 import { IOptionsPickerProps } from './IOptionsPickerProps';
-import colors from './colors';
 import { Callout } from 'office-ui-fabric-react/lib/Callout';
 import { createRef } from '@uifabric/utilities/lib';
 import { IOptionsPickerState } from './IOptionsPickerState';
 import OptionsPickerMenu from './OptionsPickerMenu/OptionsPickerMenu';
 import { IOptionsPickerOption } from './OptionsPickerMenu/IOptionsPickerMenuProps';
 
-export class OptionsPicker extends React.Component<IOptionsPickerProps, IOptionsPickerState> {
+export default class OptionsPicker extends React.Component<IOptionsPickerProps, IOptionsPickerState> {
   private _menuButtonElement = createRef<HTMLElement>();
 
   constructor(props: IOptionsPickerProps) {
@@ -38,7 +37,7 @@ export class OptionsPicker extends React.Component<IOptionsPickerProps, IOptions
               className={styles.activeOption}
               style={
                 activeOption && activeOption.id ?
-                  { backgroundColor: activeOption.color && colors[activeOption.color] } :
+                  { backgroundColor: activeOption.color && this.props.colors[activeOption.color] } :
                   {}
               }
             >
@@ -64,6 +63,7 @@ export class OptionsPicker extends React.Component<IOptionsPickerProps, IOptions
             onSelect={this.props.onSelect}
             onSaveChange={this.props.onSaveChange}
             editable={this.props.editable}
+            colors={this.props.colors}
           />
         </Callout>
       </div>
